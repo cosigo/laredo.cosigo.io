@@ -246,6 +246,32 @@
     <li>Operator notices</li>
   </ul>
 
+  <h3>Contact Administration</h3>
+
+<form method="POST" action="/contact/send.php" class="contact-form">
+  <label>
+    Name
+    <input type="text" name="name" required>
+  </label>
+
+  <label>
+    Email
+    <input type="email" name="email" required>
+  </label>
+
+  <label>
+    Subject
+    <input type="text" name="subject" required>
+  </label>
+
+  <label>
+    Message
+    <textarea name="message" rows="5" required></textarea>
+  </label>
+
+  <button type="submit">Send</button>
+</form>
+
   <p><em>Administrative tools coming soon.</em></p>
 </section>
 
