@@ -266,29 +266,42 @@
 
   <h3>Contact Administration</h3>
 
-<form method="POST" action="/contact/send.php" class="contact-form">
+<form class="contact-form" action="https://contact.cosigo.io/api/mail.php" method="POST">
+  <!-- Honeypot -->
+  <input class="hp" type="text" name="_gotcha" tabindex="-1" autocomplete="off">
+
+  <!-- Redirect back to this site -->
+  <input type="hidden" name="_redirect" value="/thanks.html">
+
+  <!-- Context -->
+  <input type="hidden" name="site" value="laredo.cosigo.io">
+  <input type="hidden" name="page" id="contact_page">
+  <input type="hidden" name="subject" value="Cosigo inquiry (laredo)">
+
   <label>
     Name
-    <input type="text" name="name" required>
+    <input name="name" required>
   </label>
 
   <label>
     Email
-    <input type="email" name="email" required>
-  </label>
-
-  <label>
-    Subject
-    <input type="text" name="subject" required>
+    <input name="email" type="email" required>
   </label>
 
   <label>
     Message
-    <textarea name="message" rows="5" required></textarea>
+    <textarea name="message" rows="6" required></textarea>
   </label>
 
-  <button type="submit">Send</button>
+  <button class="btn primary" type="submit">Send</button>
 </form>
+
+<script>
+  (function () {
+    var pageField = document.getElementById('contact_page');
+    if (pageField) pageField.value = location.href;
+  })();
+</script>
 
   <p><em>Administrative tools coming soon.</em></p>
 </section>
